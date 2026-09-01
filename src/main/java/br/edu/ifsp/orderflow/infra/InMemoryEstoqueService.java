@@ -24,6 +24,14 @@ public class InMemoryEstoqueService implements IEstoqueService {
         return this.estoque.getOrDefault(produto.getId(), 0);
     }
 
+    private void sleep(long millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+        }
+    }
+
     @Override
     public boolean reservar(Pedido pedido) {
 
@@ -36,6 +44,8 @@ public class InMemoryEstoqueService implements IEstoqueService {
                 return false;
             }
         }
+
+        this.sleep(50);
 
         for (ItemPedido item : pedido.getItens()) {
 
