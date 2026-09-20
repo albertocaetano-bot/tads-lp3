@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class FakePagamentoGateway implements IPagamentoGateway {
 
-    public static final BigDecimal CARD_LIMIT = new BigDecimal("5000.00");
+    private static final BigDecimal CARD_LIMIT = new BigDecimal("5000.00");
 
     @Override
     public ResultadoPagamento pagar(Pedido pedido) {

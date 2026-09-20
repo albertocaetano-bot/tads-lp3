@@ -18,17 +18,16 @@ public class InMemoryPedidoRepository implements IPedidoRepository {
 
     @Override
     public Optional<Pedido> findById(String id) {
-
-        //É preciso validar antes para garantir que o id esteja dentro do hashmap
-
-        if (this.pedidos.containsKey(id) == false){
-            return Optional.empty();
-        }
-
-        Pedido pedido = this.pedidos.get(id);
-
+    
+    //É preciso validar antes para garantir que o id esteja dentro do hashmap
+    if (this.pedidos.containsKey(id) == false) {
         return Optional.empty();
     }
+
+    Pedido pedido = this.pedidos.get(id);
+
+    return Optional.of(pedido);
+}
 
     @Override
     public List<Pedido> findAll() {
